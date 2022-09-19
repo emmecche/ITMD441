@@ -1,0 +1,35 @@
+#personal {
+    border-style: solid;
+    border-width: 1em;
+    border-radius: 1.5em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    padding-bottom: .25em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    width: max-content;
+    background-color: whitesmoke;
+}
+
+#personal p {
+    padding-left: .5em;
+    font-size: large;
+}
+
+#course {
+    padding-left: .5em;
+}
+
+#course h2 {
+    text-decoration: underline;
+}
+
+#course ul{
+    list-style-type: "\2605";
+}
+
+#course li.menu-item:not(:last-child) {
+    margin-bottom: 3px;
+}
