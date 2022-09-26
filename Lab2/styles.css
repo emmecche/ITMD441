@@ -1,7 +1,11 @@
 /* Flexbox Part 1 */
 
 #flex-section1 ul {
-
+	display: flex;
+	justify-content: space-evenly;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 /* end Flexbox Part 1 */
@@ -10,23 +14,27 @@
 /* Flexbox Part 2 */
 
 #flex-section2 ul {
-
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 #flex-section2 li {
-
+	flex-basis: 0;
+	flex-grow: 1;
 }
 
 #flex-section2 .item1 {
-
+	order: 1;
 }
 
 #flex-section2 .item2 {
-
+	order: 3;
 }
 
 #flex-section2 .item3 {
-
+	order: 2;
 }
 
 /* end Flexbox Part 2 */
@@ -35,11 +43,17 @@
 /* Flexbox Part 3 */
 
 #flex-section3 .box {
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #flex-section3 .tags ul {
-
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	flex-wrap: wrap;
 }
 
 /* end Flexbox Part 3 */
@@ -48,7 +62,10 @@
 /* Grid Part 1 */
 
 #grid-section1 .grid {
-
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-auto-rows: 100px;
+	gap: 20px;
 }
 
 /* end Grid Part 1 */
