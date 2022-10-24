@@ -20,6 +20,44 @@
     <div id="calc-box">
         <h3 class="heading">ITMD 441 - Lab 3 - Patrick Fisler</h3>
         <h1 class="heading">Tip Calculator</h1>
+        <form action="script.js">
+            <div class="form-item">
+                <label for="total">Bill Total: </label>
+                <input type="text" name="total" id="total">
+            </div>
+            <div class="form-item">
+                <label for="tip-slider">Tip: </label>
+                <input type="range" min="1" max="100" value="20" name="tip-slider" id="tip-slider">
+
+                <input type="text" id="tip-percentage" disabled>
+            </div>
+            <div class="form-item">
+                <fieldset id="radio-group">
+                    <legend>Suggestions: </legend>
+                    <div>
+                        <input type="radio" value="18" name="suggested-tip" id="suggested-tip18">
+                        <label for="suggested-tip18">18%</label>
+                        
+                        <input type="radio" value="20" name="suggested-tip" id="suggested-tip20" checked>
+                        <label for="suggested-tip20">20%</label>
+                        
+                        <input type="radio" value="22" name="suggested-tip" id="suggested-tip22">
+                        <label for="suggested-tip22">22%</label>
+                    
+                        <input type="radio" value="25" name="suggested-tip" id="suggested-tip25">
+                        <label for="suggested-tip25">25%</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-item">
+                <label for="tip-amount">Tip Amount: </label>
+                <input type="text" name="tip-amount" id="tip-amount" disabled>
+            </div>
+            <div class="form-item">
+                <label for="total-tip">Total Bill with Tip: </label>
+                <input type="text" name="total-tip" id="total-tip" disabled>
+            </div>
+        </form>
     </div>
 </body>
 </html>
