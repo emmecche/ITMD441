@@ -8,3 +8,12 @@
 .heading {
     text-align: center;
 }
+
+.form-item {
+    margin: 10px 15px;
+}
+
+*:disabled {
+    background-color: #ccc;
+    border: none;
+}

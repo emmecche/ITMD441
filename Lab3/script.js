@@ -67,8 +67,13 @@ function resetRadio() {
     }
 }
 
+function resetTotal() {
+    total.value = "";
+}
+
 //tester.addEventListener("click", display, false);
 this.window.addEventListener("input", display, false);
 per.addEventListener("input", resetRadio, false);
+total.addEventListener("click", resetTotal, false);
 
 }); // End DOMContentLoaded
