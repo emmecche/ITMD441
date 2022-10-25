@@ -56,8 +56,8 @@ function display() {
 
     if (output.includes(NaN)) {
     } else {
-    tipDisplay.value = output[0];
-    totalDisplay.value = output[1];
+    tipDisplay.value = Intl.NumberFormat("en-us", {style: "currency", currency: "USD"}).format(output[0]);
+    totalDisplay.value = Intl.NumberFormat("en-us", {style: "currency", currency: "USD"}).format(output[1]);
     }
 }
 

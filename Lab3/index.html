@@ -23,11 +23,12 @@
         <form action="script.js">
             <div class="form-item">
                 <label for="total">Bill Total: </label>
+                <span class="currency-code">$</span>
                 <input type="text" name="total" id="total" value="0">
             </div>
             <div class="form-item" id="slider-div">
                 <label for="tip-slider">Tip: </label>
-                <input type="range" min="0" max="100" value="20" name="tip-slider" id="tip-slider">
+                <input type="range" min="0" max="100" value="0" name="tip-slider" id="tip-slider">
 
                 <input type="text" id="tip-percentage" disabled>
             </div>
@@ -38,7 +39,7 @@
                         <input type="radio" value="18" name="suggested-tip" id="suggested-tip18">
                         <label for="suggested-tip18">18%</label>
                         
-                        <input type="radio" value="20" name="suggested-tip" id="suggested-tip20" checked>
+                        <input type="radio" value="20" name="suggested-tip" id="suggested-tip20">
                         <label for="suggested-tip20">20%</label>
                         
                         <input type="radio" value="22" name="suggested-tip" id="suggested-tip22">
