@@ -1,79 +1,69 @@
 window.addEventListener('DOMContentLoaded', function(){
-//document.getElementById()
 
-total = this.document.getElementById("total"); //need to add checks for value type
-per = this.document.getElementById("tip-slider");
+    //
 
-perDisplay = this.document.getElementById("tip-percentage");
+    const total = this.document.getElementById("total");
+    const per = this.document.getElementById("tip-slider");
 
-tipDisplay = this.document.getElementById("tip-amount");
-totalDisplay = this.document.getElementById("total-tip");
+    var rad = document.getElementsByName("suggested-tip");
 
-//tester = this.document.getElementById("submit");
+    perDisplay = this.document.getElementById("tip-percentage");
+    tipDisplay = this.document.getElementById("tip-amount");
+    totalDisplay = this.document.getElementById("total-tip");
 
-function calculateTax(origTotal, percent) {
-    tipAmount = origTotal * percent;
-    totalWithTip = origTotal + tipAmount;
+    //tester = this.document.getElementById("submit");
 
-    tipAmount = tipAmount.toFixed(2);
-    totalWithTip = totalWithTip.toFixed(2);
+    function calculateTax(origTotal, percent) {
+        tipAmount = origTotal * percent;
+        totalWithTip = origTotal + tipAmount;
 
-/*    console.log(`tip amount: ${tipAmount},
-new total: ${totalWithTip}`)*/
-    return [tipAmount, totalWithTip];
-}
+        tipAmount = tipAmount.toFixed(2);
+        totalWithTip = totalWithTip.toFixed(2);
 
-var rad = document.getElementsByName("suggested-tip");
-var prev = null;
-for (var i = 0; i < rad.length; i++) {
-    rad[i].addEventListener('change', function() {
-        //(prev) ? console.log(prev.value): null;
-        if (this !== prev) {
-            prev = this;
-        }
-        per.value = this.value;
-        perDisplay.value = `${per.value}%`;
-    })
-    rad[i].addEventListener("change", display);
-}
+    //  console.log(`tip amount: ${tipAmount},\nnew total: ${totalWithTip}`)
+        return [tipAmount, totalWithTip];
+    }
 
-function display() {
-    if (total !== null) {
+    var prev = null;
+    for (var i = 0; i < rad.length; i++) {
+        rad[i].addEventListener('change', function() {
+            if (this !== prev) {
+                prev = this;
+            }
+            per.value = this.value;
+            perDisplay.value = `${per.value}%`;
+        })
+        rad[i].addEventListener("change", display);
+    }
+
+    function display() {
         if (isNaN(total.value)) {
             alert("Please enter a number.");
             total.value = ""
         } else {
             totalValue = parseFloat(total.value);
         }
-    } else {
-        totalValue = 0;
+        
+        perDisplay.value = `${per.value}%`;
+        perValue = parseInt(per.value) / 100;
+
+        output = calculateTax(totalValue, perValue);
+
+        if (!output.includes(NaN)) {
+            tipDisplay.value = Intl.NumberFormat("en-us", {style: "currency", currency: "USD"}).format(output[0]);
+            totalDisplay.value = Intl.NumberFormat("en-us", {style: "currency", currency: "USD"}).format(output[1]);
+        } 
     }
-    
-    perDisplay.value = `${per.value}%`;
-    perValue = parseInt(per.value) / 100;
 
-    output = calculateTax(totalValue, perValue);
-
-    if (output.includes(NaN)) {
-    } else {
-    tipDisplay.value = Intl.NumberFormat("en-us", {style: "currency", currency: "USD"}).format(output[0]);
-    totalDisplay.value = Intl.NumberFormat("en-us", {style: "currency", currency: "USD"}).format(output[1]);
+    function resetRadio() {
+        for (var i = 0; i < rad.length; i++) {
+            rad[i].checked = false;
+        }
     }
-}
 
-function resetRadio() {
-    for (var i = 0; i < rad.length; i++) {
-        rad[i].checked = false;
-    }
-}
-
-function resetTotal() {
-    total.value = "";
-}
-
-//tester.addEventListener("click", display, false);
-this.window.addEventListener("input", display, false);
-per.addEventListener("input", resetRadio, false);
-total.addEventListener("click", resetTotal, false);
+    //tester.addEventListener("click", display, false);
+    this.window.addEventListener("input", display, false);
+    per.addEventListener("input", resetRadio, false);
+    total.addEventListener("click", function(){total.value = ""}, false);
 
 }); // End DOMContentLoaded
