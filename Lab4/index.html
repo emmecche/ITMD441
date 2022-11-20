@@ -28,28 +28,33 @@
             <button id="location-button" class="btn"><i class="fa-solid fa-location-dot"></i></button>
         </div>
         <div id="current-day"> <!-- Will be hidden until a location is selected -->
+            <div id="region">
+                <p id="forecast-region"></p>
+            </div>
             <div id="big-icon">
                 <img id="forecast-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img> <!-- Will edit the src after forecast info is known -->
+                <label for="forecast-temp">Temperature: </label>
+                <p id="forecast-temp"></p>
             </div>
             <div id="forecast-info">
-                <input type="text" name="forecast-dayhour" id="forecast-dayhour" disabled>
-                <input type="text" name="forecast-comment" id="forecast-comment" disabled>
+                <p id="forecast-dayhour"></p>
+                <p id="forecast-comment"></p>
 
                 <label for="forecast-precip">Precipitation: </label>
-                <input type="text" name="forecast-precip" id="forecast-precip" disabled>
+                <p id="forecast-precip"></p>
 
                 <label for="forecast-humidity">Humidity: </label>
-                <input type="text" name="forecast-humidity" id="forecast-humidity" disabled>
+                <p id="forecast-humidity"></p>
 
                 <label for="forecast-wind">Wind Speed: </label>
-                <input type="text" name="forecast-wind" id="forecast-wind" disabled>
+                <p id="forecast-wind"></p>
             </div>
         </div>
         <div id="next-7days"> <!-- Will be hidden until a location is selected -->
             <!-- Will attempt to iterate over array returned by getElementsByClassName() instead of plugging in for every div -->
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
@@ -58,7 +63,7 @@
             </div>
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
@@ -67,7 +72,7 @@
             </div>
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
@@ -76,7 +81,7 @@
             </div>
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
@@ -85,7 +90,7 @@
             </div>
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
@@ -94,7 +99,7 @@
             </div>
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
@@ -103,7 +108,7 @@
             </div>
             <div class="mini-forecast">
                 <p class="mini-day"></p>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
+                <img class="mini-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="forecast icon"></img>
                 <div class="max&min">
                     <p class="mini-max"></p>
                     <p class="mini-min"></p>
