@@ -22,7 +22,7 @@
     <div id="visible-page"> <!-- All page elements will be in a flexbox, stacked one on top of the other -->
         <div id="location-div"> <!-- Only input on the page coming from this div; will be handled in JS, no form -->
             <label for="location-entry">Enter your location: </label>
-            <input type="text" name="location-entry" id="location-entry">
+            <input type="text" name="location-entry" id="location-entry" onfocus="this.value=''">
             <button id="enter">Enter</button>
     
             <button id="location-button" class="btn"><i class="fa-solid fa-location-dot"></i></button>

@@ -34,14 +34,16 @@ window.addEventListener('DOMContentLoaded', function() {
                 displayWeather(jsonData)
             })
             .catch(function() {
-                current_forecast.innerHTML = "Invalid Location";
+                alert("Invalid Location");
+                input_line.value = "";
+                resetWeather();
             });
     }
 
     function connectWeatherButton(lat, long) {
         fetch(`https://weatherdbi.herokuapp.com/data/weather/${lat},${long}`)
-            .then(res=>res.json())
-            .then(function(jsonData) {
+        .then(res=>res.json())
+        .then(function(jsonData) {
                 displayWeather(jsonData)
             })
             .catch();
@@ -49,6 +51,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function displayWeather(jsonData) {
         showHidden();
+
+        enter_button.innerHTML = "Update";
 
         forecast_region.innerHTML = jsonData.region;
 
@@ -63,7 +67,6 @@ window.addEventListener('DOMContentLoaded', function() {
         next_days_arr = jsonData.next_days;
         for (var i=0; i<next_7days.length; i++) {
             mini_day = next_7days[i].getElementsByClassName("mini-day")[0];
-            console.log(mini_day, next_days_arr[i]);
             mini_day.innerHTML = next_days_arr[i+1].day;
             mini_icon = next_7days[i].getElementsByClassName("mini-icon")[0];
             mini_icon.src = next_days_arr[i+1].iconURL;
@@ -73,6 +76,35 @@ window.addEventListener('DOMContentLoaded', function() {
             mini_min.innerHTML = next_days_arr[i+1].min_temp.f + "° Fahrenheit";
             mini_comment = next_7days[i].getElementsByClassName("mini-comment")[0];
             mini_comment.innerHTML = next_days_arr[i+1].comment;
+        }
+    }
+
+    function resetWeather() {
+        hide();
+
+        enter_button.innerHTML = "Enter";
+
+        forecast_region.innerHTML = "";
+
+        forecast_icon.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+        forecast_temp.innerHTML     = "";
+        forecast_dayhour.innerHTML  = "";
+        forecast_comment.innerHTML  = "";
+        forecast_precip.innerHTML   = "";
+        forecast_humidity.innerHTML = "";
+        forecast_wind.innerHTML     = "";
+
+        for (var i=0; i<next_7days.length; i++) {
+            mini_day = next_7days[i].getElementsByClassName("mini-day")[0];
+            mini_day.innerHTML = "";
+            mini_icon = next_7days[i].getElementsByClassName("mini-icon")[0];
+            mini_icon.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+            mini_max = next_7days[i].getElementsByClassName("max&min")[0].getElementsByClassName("mini-max")[0];
+            mini_max.innerHTML = "";
+            mini_min = next_7days[i].getElementsByClassName("max&min")[0].getElementsByClassName("mini-min")[0];
+            mini_min.innerHTML = "";
+            mini_comment = next_7days[i].getElementsByClassName("mini-comment")[0];
+            mini_comment.innerHTML = "";
         }
     }
 
@@ -94,6 +126,11 @@ window.addEventListener('DOMContentLoaded', function() {
     function showHidden() {
         current_forecast.style.display = "block";
         next_forecast.style.display = "block";
+    }
+
+    function hide() {
+        current_forecast.style.display = "none";
+        next_forecast.style.display = "none";
     }
 
     location_button.addEventListener("click", getLocation, false);
