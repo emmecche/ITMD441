@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Dashboard</title>
+    <script src="https://kit.fontawesome.com/6e0c934d50.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../nav-style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav id="navigation">
+        <ul>
+            <li><a href="index.html">Lab 1</a></li>
+            <li><a href="Lab2/index.html">Lab 2</a></li>
+            <li><a href="Lab3/index.html">Lab 3</a></li>
+            <li><a href="Lab4/index.html">Lab 4</a></li>
+        </ul>
+    </nav>
+    <div id="visible-page"> <!-- All page elements will be in a flexbox, stacked one on top of the other -->
+        <div id="location-div"> <!-- Only input on the page coming from this div; will be handled in JS, no form -->
+            <label for="location-entry">Enter your location: </label>
+            <input type="text" name="location-entry" id="location-entry">
+    
+            <button class="btn"><i class="fa-solid fa-map-location-dot"></i> Current Location</button>
+        </div>
+        <div id="current-day"> <!-- Will be hidden until a location is selected -->
+            <div id="big-icon">
+                <i id="forecast-icon" class=""></i> <!-- Will edit the class after forecast info is known; use fontawesome icons -->
+            </div>
+            <div id="forecast-info">
+                <input type="text" name="forecast-dayhour" id="forecast-dayhour" disabled>
+                <input type="text" name="forecast-comment" id="forecast-comment" disabled>
+
+                <label for="forecast-precip">Precipitation: </label>
+                <input type="text" name="forecast-precip" id="forecast-precip" disabled>
+
+                <label for="forecast-humidity">Humidity: </label>
+                <input type="text" name="forecast-humidity" id="forecast-humidity" disabled>
+
+                <label for="forecast-wind">Wind Speed: </label>
+                <input type="text" name="forecast-wind" id="forecast-wind" disabled>
+            </div>
+        </div>
+        <div id="next-7days"> <!-- Will be hidden until a location is selected -->
+            <!-- Will attempt to iterate over array returned by getElementsByClassName() instead of plugging in for every div -->
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+            <div class="mini-forecast">
+                <p class="mini-day"></p>
+                <i></i>
+                <div class="max&min">
+                    <p class="mini-max"></p>
+                    <p class="mini-min"></p>
+                </div>
+                <p class="mini-comment"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
