@@ -59,10 +59,10 @@ window.addEventListener('DOMContentLoaded', function() {
         forecast_icon.src = jsonData.currentConditions.iconURL;
         forecast_temp.innerHTML     = jsonData.currentConditions.temp.f + "° Fahrenheit";
         forecast_dayhour.innerHTML  = jsonData.currentConditions.dayhour;
-        forecast_comment.innerHTML  = jsonData.currentConditions.comment;
-        forecast_precip.innerHTML   = jsonData.currentConditions.precip;
-        forecast_humidity.innerHTML = jsonData.currentConditions.humidity;
-        forecast_wind.innerHTML     = jsonData.currentConditions.wind.mile + " mph";
+        forecast_comment.innerHTML  = "The weather today is " + jsonData.currentConditions.comment.toLowerCase();
+        forecast_precip.innerHTML   = "Precipitation: " + jsonData.currentConditions.precip;
+        forecast_humidity.innerHTML = "Humidity: " + jsonData.currentConditions.humidity;
+        forecast_wind.innerHTML     = "Wind Speed: " + jsonData.currentConditions.wind.mile + " mph";
 
         next_days_arr = jsonData.next_days;
         for (var i=0; i<next_7days.length; i++) {
@@ -71,9 +71,9 @@ window.addEventListener('DOMContentLoaded', function() {
             mini_icon = next_7days[i].getElementsByClassName("mini-icon")[0];
             mini_icon.src = next_days_arr[i+1].iconURL;
             mini_max = next_7days[i].getElementsByClassName("max&min")[0].getElementsByClassName("mini-max")[0];
-            mini_max.innerHTML = next_days_arr[i+1].max_temp.f + "° Fahrenheit";
+            mini_max.innerHTML = next_days_arr[i+1].max_temp.f + "° F";
             mini_min = next_7days[i].getElementsByClassName("max&min")[0].getElementsByClassName("mini-min")[0];
-            mini_min.innerHTML = next_days_arr[i+1].min_temp.f + "° Fahrenheit";
+            mini_min.innerHTML = next_days_arr[i+1].min_temp.f + "° F";
             mini_comment = next_7days[i].getElementsByClassName("mini-comment")[0];
             mini_comment.innerHTML = next_days_arr[i+1].comment;
         }
@@ -124,8 +124,8 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function showHidden() {
-        current_forecast.style.display = "block";
-        next_forecast.style.display = "block";
+        current_forecast.style.display = "grid";
+        next_forecast.style.display = "flex";
     }
 
     function hide() {

@@ -1,7 +1,101 @@
-#current-day {
-    display: none;
+/* Entire page */
+
+#visible-page {
+    padding: 1em .5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
+/* Location textbox and current location buttons */
+
+#location-div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    column-gap: 1em;
+    height: min-content;
+}
+
+#location-entry {
+    width: 70%;
+}
+
+/* Current day temperature */
+
+/* Gets set as a grid */
+#current-day {
+    display: none;
+    justify-content: center;
+    height: max-content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+}
+
+#forecast-region {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+}
+
+#forecast-icon {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 3;
+}
+
+#forecast-temp {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 5;
+    grid-row-end: span 1;
+}
+
+#forecast-dayhour {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+}
+
+#forecast-comment {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 5;
+    grid-row-end: span 1;
+}
+
+#forecast-precip {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+}
+
+#forecast-humidity {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+}
+
+#forecast-wind {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+}
+
+/* Next 7 days temperatures */
+
+/* Gets set as a flexbox */
 #next-7days {
     display: none;
+    justify-content: space-evenly;
+}
+
+.mini-forecast {
+    width: max-content;
 }
