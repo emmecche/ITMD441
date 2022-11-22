@@ -1,10 +1,28 @@
 /* Entire page */
 
+body {
+    background-image: url("../Lab4/media/background.jpg");
+    background-color: transparent;
+    background-size: cover;
+}
+
 #visible-page {
     padding: 1em .5em;
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+p {
+    font-size: larger;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+label {
+    font-size: larger;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 /* Location textbox and current location buttons */
@@ -26,11 +44,21 @@
 /* Gets set as a grid */
 #current-day {
     display: none;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     justify-items: center;
     height: max-content;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+    backdrop-filter: saturate(100%) blur(10px);
+    background-color: rgba(255,255,255,0.3);
+}
+
+#current-day p {
+    font-size: x-large;
+    font-weight: bolder;
 }
 
 #forecast-region {
@@ -45,6 +73,8 @@
     grid-column-end: span 1;
     grid-row-start: 2;
     grid-row-end: span 3;
+    height: 100%;
+    width: auto;
 }
 
 #forecast-temp {
@@ -98,5 +128,28 @@
 }
 
 .mini-forecast {
-    width: max-content;
+    width: 6em;
+    backdrop-filter: saturate(100%) blur(10px);
+    background-color: rgba(255,255,255,0.3);
+    padding: .5em 2em;
+}
+
+.mini-day {
+    text-align: center;
+}
+
+.mini-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.mini-temp {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini-comment {
+    text-align: center;
 }

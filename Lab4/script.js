@@ -70,9 +70,9 @@ window.addEventListener('DOMContentLoaded', function() {
             mini_day.innerHTML = next_days_arr[i+1].day;
             mini_icon = next_7days[i].getElementsByClassName("mini-icon")[0];
             mini_icon.src = next_days_arr[i+1].iconURL;
-            mini_max = next_7days[i].getElementsByClassName("max&min")[0].getElementsByClassName("mini-max")[0];
+            mini_max = next_7days[i].getElementsByClassName("mini-temp")[0].getElementsByClassName("mini-max")[0];
             mini_max.innerHTML = next_days_arr[i+1].max_temp.f + "° F";
-            mini_min = next_7days[i].getElementsByClassName("max&min")[0].getElementsByClassName("mini-min")[0];
+            mini_min = next_7days[i].getElementsByClassName("mini-temp")[0].getElementsByClassName("mini-min")[0];
             mini_min.innerHTML = next_days_arr[i+1].min_temp.f + "° F";
             mini_comment = next_7days[i].getElementsByClassName("mini-comment")[0];
             mini_comment.innerHTML = next_days_arr[i+1].comment;
